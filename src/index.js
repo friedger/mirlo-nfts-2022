@@ -98,8 +98,8 @@ export function App() {
           onClick={() =>
             showConnect({
               appDetails: {
-                name: "Mirlo Mint",
-                icon: "https://youthful-wing-084af9.netlify.app/stackschina.png",
+                name: "Mirlo Music NFTs",
+                icon: "https://youthful-wing-084af9.netlify.app/mirlo.png",
               },
               onFinish: () => {
                 setUser(userSession.loadUserData());

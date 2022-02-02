@@ -46,11 +46,11 @@ export function App() {
           disabled={!profile}
           onClick={() => {
             setStatus(undefined);
-            const fn = functions[count - 1];
+            const fn = functions[count];
             openContractCall({
               contractAddress: "SP1QSA6J2HC2TV5NV0Q7X1H6ZBV6SDTDKC4GXBJPY",
               contractName: "mirlos-for-artists-2022",
-              functionName: fn.name,
+              functionName: fn,
               functionArgs: [],
               anchorMode: AnchorMode.ANY,
               postConditionMode: PostConditionMode.Deny,
@@ -64,10 +64,10 @@ export function App() {
               userSession,
               network,
               onFinish: () => {
-                setStatus(fn.name + " transaction sent");
+                setStatus(fn + " transaction sent");
               },
               onCancel: () => {
-                setStatus(fn.name + " transaction canceled");
+                setStatus(fn + " transaction canceled");
               },
             });
           }}
@@ -77,7 +77,7 @@ export function App() {
         <button
           onClick={() => {
             try {
-              userSession.signUserOut();
+              userSession.signUserOut("/");
               setUser(undefined);
               // call isUserSignIn to update the UI
               userSession.isUserSignedIn();

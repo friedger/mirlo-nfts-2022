@@ -99,7 +99,7 @@ export function App() {
             showConnect({
               appDetails: {
                 name: "Mirlo Music NFTs",
-                icon: "https://youthful-wing-084af9.netlify.app/mirlo.png",
+                icon: "https://amazing-hoover-975497.netlify.app/mirlo.png",
               },
               onFinish: () => {
                 setUser(userSession.loadUserData());

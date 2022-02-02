@@ -1,7 +1,6 @@
 import { openContractCall, showConnect, UserSession } from "@stacks/connect";
 import {
   AnchorMode,
-  stringAsciiCV,
   PostConditionMode,
   makeStandardSTXPostCondition,
   FungibleConditionCode,
@@ -10,7 +9,6 @@ import { StacksMainnet } from "@stacks/network";
 import React, { useState } from "react";
 
 import ReactDOM from "react-dom";
-import { MirloContract } from "./artifacts/contracts.ts";
 
 const userSession = new UserSession();
 const network = new StacksMainnet();
@@ -20,7 +18,7 @@ const numbers = [1, 3, 5, 10];
 
 export function App() {
   const [user, setUser] = useState();
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
   const [status, setStatus] = useState();
 
   if (user || userSession.isUserSignedIn()) {
@@ -30,7 +28,7 @@ export function App() {
         <button
           onClick={() => {
             setStatus(undefined);
-            setCount(count - 1 < 1 ? 1 : count - 1);
+            setCount(count < 1 ? 0 : count - 1);
           }}
         >
           -
@@ -39,7 +37,7 @@ export function App() {
         <button
           onClick={() => {
             setStatus(undefined);
-            setCount(count + 1 > 4 ? 4 : count + 1);
+            setCount(count > 3 ? 3 : count + 1);
           }}
         >
           +
